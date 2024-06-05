@@ -4,7 +4,8 @@
   "description": "PZN - Typescript Dasar",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "npx tsc"
   },
   "jest": {
     "transform": {
