@@ -47,9 +47,9 @@ describe("Function test", () => {
 
     expect(sayHello("Aldi")).toBe("Hello Aldi, my name is Aldi");
     expect(sayHello("Aldi", "Tegar")).toBe("Hello Aldi Tegar, my name is Aldi");
-  })
+  });
 
-  it ("should support overloading function", () => {
+  it("should support overloading function", () => {
     function process(value: string): string;
     function process(value: number): number;
     function process(value: boolean): boolean;
@@ -66,5 +66,18 @@ describe("Function test", () => {
     expect(process("Aldi")).toBe("ALDI");
     expect(process(25)).toBe(27);
     expect(process(true)).toBe(false);
-  })
+  });
+
+  it("should support function as parameter", () => {
+    function sayHello(name: string, filter: (value: string) => string): string {
+      return `Hello, ${filter(name)}`;
+    }
+
+    function upperCase(value: string): string {
+      return value.toLocaleUpperCase();
+    }
+
+    expect(sayHello("Aldi", upperCase)).toBe("Hello, ALDI");
+    expect(sayHello("Aldi", (value: string): string => value.toLocaleUpperCase())).toBe("Hello, ALDI");
+  });
 });
