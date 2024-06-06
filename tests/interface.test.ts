@@ -91,9 +91,28 @@ describe("Interface", () => {
       name: "Aldi",
       sayHello: function (name: string): string {
         return `Hello ${name}, my name is ${this.name}`;
-      }
+      },
     };
 
     console.info(person.sayHello("Tegar"));
+  });
+
+  it("should support intersection type", () => {
+    interface HasName {
+      name: string;
+    }
+
+    interface HasId {
+      id: number;
+    }
+
+    type Person = HasName & HasId;
+
+    const person: Person = {
+      id: 1,
+      name: "Aldi",
+    };
+
+    console.info(person);
   });
 });
