@@ -1,3 +1,4 @@
+import { Employee, Manager } from "../src/employee";
 import { Seller } from "../src/seller";
 
 describe("Interface", () => {
@@ -33,7 +34,7 @@ describe("Interface", () => {
 
     console.info(add(1, 2));
     expect(add(1, 2)).toBe(3);
-  })
+  });
 
   it("should support indexable interface", () => {
     // Create Indexable Interface
@@ -44,7 +45,7 @@ describe("Interface", () => {
     const names: StringArray = ["Aldi", "Tegar", "Prakoso"];
     console.info(names);
     console.info(names[0]);
-  })
+  });
 
   it("should support indexable interface for non number index", () => {
     // Create Indexable Interface
@@ -56,9 +57,27 @@ describe("Interface", () => {
       name: "Aldi",
       address: "Bogor",
     };
-    
+
     console.info(dictionary);
     console.info(dictionary["name"]);
     console.info(dictionary["address"]);
-  })
+  });
+
+  it("should support extend interface", () => {
+    const employee: Employee = {
+      id: 1,
+      name: "Aldi",
+      divitsion: "IT",
+    };
+
+    const manager: Manager = {
+      id: 2,
+      name: "Tegar",
+      divitsion: "IT",
+      numberOfEmployees: 10,
+    }
+
+    console.info(employee);
+    console.info(manager);
+  });
 });
