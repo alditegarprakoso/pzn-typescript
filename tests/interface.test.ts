@@ -75,9 +75,25 @@ describe("Interface", () => {
       name: "Tegar",
       divitsion: "IT",
       numberOfEmployees: 10,
-    }
+    };
 
     console.info(employee);
     console.info(manager);
+  });
+
+  it("should support function in interface", () => {
+    interface Person {
+      name: string;
+      sayHello(name: string): string;
+    }
+
+    const person: Person = {
+      name: "Aldi",
+      sayHello: function (name: string): string {
+        return `Hello ${name}, my name is ${this.name}`;
+      }
+    };
+
+    console.info(person.sayHello("Tegar"));
   });
 });
