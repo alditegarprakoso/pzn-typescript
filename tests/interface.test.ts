@@ -34,4 +34,31 @@ describe("Interface", () => {
     console.info(add(1, 2));
     expect(add(1, 2)).toBe(3);
   })
+
+  it("should support indexable interface", () => {
+    // Create Indexable Interface
+    interface StringArray {
+      [index: number]: string;
+    }
+
+    const names: StringArray = ["Aldi", "Tegar", "Prakoso"];
+    console.info(names);
+    console.info(names[0]);
+  })
+
+  it("should support indexable interface for non number index", () => {
+    // Create Indexable Interface
+    interface StringDictionary {
+      [key: string]: string;
+    }
+
+    const dictionary: StringDictionary = {
+      name: "Aldi",
+      address: "Bogor",
+    };
+    
+    console.info(dictionary);
+    console.info(dictionary["name"]);
+    console.info(dictionary["address"]);
+  })
 });
