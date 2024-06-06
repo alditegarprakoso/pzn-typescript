@@ -48,4 +48,23 @@ describe("Function test", () => {
     expect(sayHello("Aldi")).toBe("Hello Aldi, my name is Aldi");
     expect(sayHello("Aldi", "Tegar")).toBe("Hello Aldi Tegar, my name is Aldi");
   })
+
+  it ("should support overloading function", () => {
+    function process(value: string): string;
+    function process(value: number): number;
+    function process(value: boolean): boolean;
+    function process(value: any): any {
+      if (typeof value === "string") {
+        return value.toLocaleUpperCase();
+      } else if (typeof value === "number") {
+        return value + 2;
+      } else {
+        return !value;
+      }
+    }
+
+    expect(process("Aldi")).toBe("ALDI");
+    expect(process(25)).toBe(27);
+    expect(process(true)).toBe(false);
+  })
 });
