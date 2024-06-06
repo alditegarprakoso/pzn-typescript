@@ -20,4 +20,18 @@ describe("Interface", () => {
     // seller.npwp = "0987654321";
     console.info(seller);
   });
+
+  it("should support function interface", () => {
+    // Create Interface Function
+    interface addFunction {
+      (num1: number, num2: number): number;
+    }
+
+    const add: addFunction = (num1: number, num2: number): number => {
+      return num1 + num2;
+    };
+
+    console.info(add(1, 2));
+    expect(add(1, 2)).toBe(3);
+  })
 });
